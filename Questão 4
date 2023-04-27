@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+  int contador = 0, var = 0;
+  float numero;
+
+  while(contador != 1){
+    printf("Digite qualquer número: ");
+    scanf("%f", &numero);
+
+    if(numero > 0) {
+      var++;
+
+      char str[20];
+      sprintf(str, "%.0f", numero);
+      int num_digitos = strlen(str);
+
+      printf("----------------------------------------------------\n");
+      printf("O número %.0f tem %d dígitos.\n", numero, num_digitos);
+      printf("----------------------------------------------------\n\n");
+    }
+
+    if (numero < 0) break;
+  }
+
+  printf("Foram informados %i números positivos!\n", var);
+  return 0;
+}
+
