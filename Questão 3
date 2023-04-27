@@ -1,0 +1,38 @@
+#include <stdio.h>
+
+
+int main() {
+  int numeroConta, numeroInverso, digitoVerificador, somaConta, somaPosicional;
+   
+  do {
+      printf("Digite o numero da conta (1000 a 9999): ");
+      scanf("%d", &numeroConta);
+  } while (numeroConta < 1000 || numeroConta > 9999);
+   
+  numeroInverso = 0;
+  somaConta = numeroConta;
+  somaPosicional = 0;
+
+
+ 
+  while (numeroConta > 0) {
+      int digito = numeroConta % 10;
+      numeroInverso = numeroInverso * 10 + digito;
+      somaPosicional += digito * (somaConta < 10 ? 1 : somaConta < 100 ? 2 : somaConta < 1000 ? 3 : 4);
+      numeroConta /= 10;
+  }
+   
+  digitoVerificador = somaConta + numeroInverso;
+   
+  printf("Numero da conta: %d\n", somaConta);
+  printf("Numero inverso: %d\n", numeroInverso);
+  printf("Soma posicional: %d\n", somaPosicional);
+  printf("Digito verificador: %d\n", digitoVerificador % 10);
+   
+  if (digitoVerificador % 10 == 0) {
+      printf("Numero inteiro.\n");
+  } else {
+      printf("Número decimal.\n");
+  }
+return 0;
+}
