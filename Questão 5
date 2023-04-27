@@ -1,0 +1,78 @@
+#include <stdio.h>
+
+
+int main(void) {
+  int quantidade, cont = 0;
+  float valor, total = 0.0, media;
+
+
+  do {
+    printf("Informe a quantidade: ");
+    scanf("%i", &quantidade);
+
+
+    if (quantidade > 0) {
+      printf("Informe o valor: ");
+      scanf("%f", &valor);
+     
+      if (valor > 0) {
+        total += quantidade * valor;
+        cont += quantidade;
+      }
+    }
+  } while (quantidade > 0);
+
+
+  if (cont > 0) {
+    media = total / cont;
+    int reais = (int) total;
+    int centavos = (int) ((total - reais) * 100);
+
+
+    printf("Valor total da compra: %i reais e %i centavos\n", reais, centavos);
+
+
+    int cedulas100 = reais / 100;
+    reais %= 100;
+
+
+    int cedulas50 = reais / 50;
+    reais %= 50;
+
+
+    int cedulas20 = reais / 20;
+    reais %= 20;
+
+
+    int cedulas10 = reais / 10;
+    reais %= 10;
+
+
+    int cedulas5 = reais / 5;
+    reais %= 5;
+
+
+    int cedulas2 = reais / 2;
+    reais %= 2;
+
+
+    int moedas1 = reais;
+
+
+    printf("Cédulas de 100: %i\n", cedulas100);
+    printf("Cédulas de 50: %i\n", cedulas50);
+    printf("Cédulas de 20: %i\n", cedulas20);
+    printf("Cédulas de 10: %i\n", cedulas10);
+    printf("Cédulas de 5: %i\n", cedulas5);
+    printf("Cédulas de 2: %i\n", cedulas2);
+    printf("Moedas de 1: %i\n", moedas1);
+
+
+    printf("Valor médio dos itens comprados: %.2f reais\n", media);
+  } else {
+    printf("Não foi realizada nenhuma compra.\n");
+  }
+
+
+  return 0;
+}
