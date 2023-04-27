@@ -1,0 +1,49 @@
+#include <stdio.h>
+
+
+char categoria;
+int soma, total;
+float media, quantidade;
+
+
+int main(void) {
+
+
+  do {
+    printf("Informe a categoria: ");
+    scanf(" %c", &categoria);
+
+
+    if (categoria == 'A' || categoria == 'B' || categoria == 'C') {
+
+
+      printf("Informe a quantidade: ");
+      scanf(" %f", &quantidade);
+
+
+      if (quantidade > 0) {
+        soma += quantidade;
+        total++;
+
+
+        if (soma > 0)
+          media = soma / quantidade;
+      }
+
+
+      else {
+        printf("Valor de quantidade não pode ser menor ou igual a 0!\n");
+        break;
+      }
+    }
+
+
+  } while (categoria == 'A' || categoria == 'B' || categoria == 'C');
+
+
+  if (media > 0)
+    printf("A media dos produtos é %.2f", media);
+  else
+    printf("Não foi possível calcular a média!");
+  return 0;
+}
