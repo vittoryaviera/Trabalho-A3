@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+
+float ValorDoBem, ValorDepreciado, BemDepreciado, taxa, soma;
+int DepreciacaoAnos;
+
+
+int main(void){
+  printf("Digite o valor do bem que vai ser depreciado : ");
+  scanf("%f", &ValorDoBem);
+
+
+  printf("Informe o período de depreciação (em anos) : ");
+  scanf("%i", &DepreciacaoAnos);
+
+
+  printf("Informe a taxa de depreciação anual (em porcentagem %) : ");
+  scanf("%f", &taxa);
+
+
+  printf(" Ano    Valor do Bem    Depreciação    Valor Depreciado \n");
+  printf("=======================================================\n");
+  for(int i = 0; i != DepreciacaoAnos; i++){
+    ValorDepreciado = (ValorDoBem* (taxa / 100));
+    printf(" %i       %.2f          %.2f            %.2f\n", (i + 1), ValorDoBem, ValorDepreciado, (ValorDoBem - ValorDepreciado));
+    BemDepreciado = ValorDoBem - ValorDepreciado;
+    ValorDoBem = ValorDoBem - ValorDepreciado;
+    soma += ValorDepreciado;
+  }
+  printf("===================================================\n");
+  printf("Depreciação acumul
